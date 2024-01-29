@@ -1,0 +1,10 @@
+config file for php unit, everything in command line can be cinfigured here without entering the flags
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" verbose="true">
+	<testsuites>
+		<testsuite name="Test suite"> 
+            <!-- by default, it scans files with Test.php ending, if you want to change then add that suffix  -->
+			<directory>tests</directory>            
+		</testsuite>                    
+    </testsuites>    
+</phpunit>
