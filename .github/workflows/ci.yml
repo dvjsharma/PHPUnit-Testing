@@ -1,0 +1,26 @@
+name: CI
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+    workflow_dispatch:
+
+jobs:
+    test-suite:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone Repository
+              uses: actions/checkout@v2
+
+            - name: Set up PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "8.1"
+
+            - name: Install Dependencies
+              run: composer install
+
+            - name: Run PHPUnit Tests
+              run: vendor/bin/phpunit tests --color
